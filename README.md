@@ -1,1 +1,2 @@
-# Suggestions-Panel-Frontend
+# Suggestion Panel Frontend
+Panel frontend for the Suggestions bot.
