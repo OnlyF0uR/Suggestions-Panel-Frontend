@@ -57,7 +57,7 @@ export default function Incidents() {
             </Table>
             <div className={classes.seeMore}>
                 <Link color="primary" href="#" onClick={preventDefault}>
-                    Report unlisted downtime
+                    Report unlisted incident
                 </Link>
             </div>
         </React.Fragment>

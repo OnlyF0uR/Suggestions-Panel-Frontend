@@ -1,35 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Copyright from '../components/CopyRight';
+import Copyright from '../../components/CopyRight';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
-
-function UserAvatar({ classes, userData }) {
-    return (
-        <Avatar className={classes} alt={userData.username} src={`https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`} />
-    )
-}
-
-function FallbackAvatar({ classes }) {
-    return (
-        <Avatar className={classes} src={"https://cdn.pixabay.com/photo/2016/10/18/18/19/question-mark-1750942_960_720.png"} />
-    )
-}
-// const darkTheme = createMuiTheme({
-//     palette: {
-//         primary: {
-//             main: '#121212',
-//             white: '#fff',
-//             gray: 'rgba(255, 255, 255, 0.7)'
-//         }
-//     }
-// });
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -91,12 +69,11 @@ function Login () {
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.rightBox}>
                 <div className={classes.paper}>
-                    { userData === null ? <FallbackAvatar classes={classes.avatar} /> : <UserAvatar classes={classes.avatar} userData={userData}/>}
                     <Typography component="h1" variant="h5">
-                        {userData === null ? 'Login with Discord' : `Welcome ${userData.username}`}
+                        Login with Discord
                     </Typography>
                     <Typography variant="body1" align="center" className={classes.subText}>
-                        {userData === null ? 'After clicking continue, you will be redirected to authorize with Discord.' : 'After clicking continue, you will be redirected to our dashboard.'}
+                        After clicking continue, you will be redirected to authorize with Discord.
                     </Typography>
                     <form className={classes.form} noValidate>
                         <Button type="submit" fullWidth color="primary" variant="contained" className={classes.submit} onClick={(e) => {

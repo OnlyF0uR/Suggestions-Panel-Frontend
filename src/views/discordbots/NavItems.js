@@ -30,7 +30,7 @@ const statistics = (
     <div>
         <ListItem button onClick={event => {
             event.preventDefault();
-            window.location.href = '/dashboard/stats';
+            window.location.href = '/discordbots/stats';
         }}>
             <ListItemIcon>
                 <TrendingUpIcon />
@@ -39,7 +39,7 @@ const statistics = (
         </ListItem>
         <ListItem button onClick={event => {
             event.preventDefault();
-            window.location.href = '/dashboard/status';
+            window.location.href = '/discordbots/status';
         }}>
             <ListItemIcon>
                 <AnnouncementIcon />
@@ -54,7 +54,7 @@ const suggestions = (
         <ListSubheader inset>Suggestions</ListSubheader>
         <ListItem button onClick={event => {
             event.preventDefault();
-            window.location.href = '/dashboard/suggestions/overview';
+            window.location.href = '/discordbots/suggestions/overview';
         }}>
             <ListItemIcon>
                 <DashboardIcon />
@@ -63,7 +63,7 @@ const suggestions = (
         </ListItem>
         <ListItem button onClick={event => {
             event.preventDefault();
-            window.location.href = '/dashboard/suggestions/settings';
+            window.location.href = '/discordbots/suggestions/settings';
         }}>
             <ListItemIcon>
                 <SettingsIcon />

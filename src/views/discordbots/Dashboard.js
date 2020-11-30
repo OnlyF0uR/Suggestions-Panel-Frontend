@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,28 +7,26 @@ import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Copyright from '../components/CopyRight';
-import NavItems from './listItems';
-import Chart from '../components/Chart';
-import Orders from '../components/Orders';
+import Copyright from '../../components/CopyRight';
+import NavItems from './NavItems';
+import Chart from '../../components/discordbots/Chart';
+import Orders from '../../components/discordbots/Orders';
 
-import { SuggestionStatus, DiscordApiStatus } from '../components/Status';
-import Incidents from "../components/Incidents";
-import Deposits from "../components/Deposits";
-import Suggestions from "../components/Suggestions";
-import Reports from "../components/Reports";
+import { SuggestionStatus, DiscordApiStatus } from '../../components/discordbots/Status';
+import Incidents from "../../components/discordbots/Incidents";
+import Deposits from "../../components/discordbots/Deposits";
+import Suggestions from "../../components/discordbots/suggestions/Suggestions";
+import Reports from "../../components/discordbots/suggestions/Reports";
 import Avatar from "@material-ui/core/Avatar";
 
 const drawerWidth = 240;
 
-function UserAvatar({ classes, userData }) {
+function UserAvatar({ userData }) {
     return (
-        <Avatar className={classes} alt={userData.username} src={`https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`} />
+        <Avatar alt={userData.username} src={`https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`} />
     )
 }
 
@@ -71,10 +69,6 @@ const useStyles = makeStyles((theme) => ({
     },
     fixedHeight: {
         height: 240,
-    },
-    avatar: {
-        height: '12%',
-        width: '12%'
     }
 }));
 
@@ -100,12 +94,7 @@ function Main(props) {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         Dashboard
                     </Typography>
-                    <IconButton>
-                        <Badge>
-                            {/* TODO: Fix this */}
-                            <UserAvatar classes={classes.avatar} userData={userData}/>
-                        </Badge>
-                    </IconButton>
+                    <UserAvatar userData={userData}/>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" classes={{
@@ -158,18 +147,17 @@ export function Stats() {
 
 export function Status() {
     const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <Main>
             <Grid item xs={12} md={4} lg={3}>
-                <Paper className={fixedHeightPaper}>
+                <Paper className={classes.paper}>
                     <SuggestionStatus />
                 </Paper>
             </Grid>
             {/* Recent Status */}
             <Grid item xs={12} md={4} lg={3}>
-                <Paper className={fixedHeightPaper}>
+                <Paper className={classes.paper}>
                     <DiscordApiStatus />
                 </Paper>
             </Grid>
