@@ -3,10 +3,6 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-function preventDefault(event) {
-    event.preventDefault();
-}
-
 const useStyles = makeStyles({
     depositContext: {
         flex: 1,
@@ -17,16 +13,16 @@ export default function Deposits() {
     const classes = useStyles();
     return (
         <React.Fragment>
-            Recent Deposits
+            Monthly donations
             <Typography component="p" variant="h4">
-                $3,024.00
+                $0,00
             </Typography>
             <Typography color="textSecondary" className={classes.depositContext}>
-                on 15 March, 2019
+                on 20 Febuary, 2021
             </Typography>
             <div>
-                <Link color="primary" href="#" onClick={preventDefault}>
-                    View balance
+                <Link color="primary" href="/discordbots/donating">
+                    Support us
                 </Link>
             </div>
         </React.Fragment>

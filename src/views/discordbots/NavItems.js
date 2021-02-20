@@ -78,12 +78,12 @@ const codedsnow = (
         <ListSubheader inset>CodedSnow</ListSubheader>
         <ListItem button onClick={event => {
             event.preventDefault();
-            window.location = 'https://github.com/jerskisnow/Suggestions/wiki/Donating';
+            window.location = '/discordbots/donating';
         }}>
             <ListItemIcon>
                 <MonetizationOnIcon />
             </ListItemIcon>
-            <ListItemText primary="Donate / Invest" />
+            <ListItemText primary="Donating" />
         </ListItem>
         <ListItem button onClick={event => {
             event.preventDefault();

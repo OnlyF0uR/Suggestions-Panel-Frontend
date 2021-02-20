@@ -69,6 +69,17 @@ const useStyles = makeStyles((theme) => ({
     },
     fixedHeight: {
         height: 240,
+    },
+    centerText: {
+        textAlign: "center"
+    },
+    normalText: {
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4),
+        fontSize: "1.02rem"
+    },
+    moveRight: {
+        paddingLeft: theme.spacing(5)
     }
 }));
 
@@ -117,6 +128,8 @@ function Main(props) {
         </div>
     );
 }
+
+// Discordbots part
 
 export function Stats() {
     const classes = useStyles();
@@ -171,6 +184,47 @@ export function Status() {
     );
 }
 
+export function Donating() {
+    const classes = useStyles();
+
+    return (
+        <Main>
+            <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                    <h1 className={classes.centerText}>Why consider donating?</h1>
+                    <p className={classes.normalText}>Currently, CodedSnow is fully funded with donations. Besides that we also do not make any profit when it comes to our discordbots and other projects.
+                        However it is not free to keep our projects up and running. In order to achieve this goal we are fully depended on donations. Without donations we will
+                        be unable to continue with our projects including our discordbots. That is why donations are grealy appreciated and if you have the possibility and permission
+                        to donate then we would like to ask you to consider it as it greatly helps our us to maintain our projects.
+                    </p>
+                    <h1 className={classes.centerText}>Perks and benefits</h1>
+                    <p className={classes.normalText}>Perks and benifits will be coming soon!</p>
+                    <h1 className={classes.centerText}>How to donate?</h1>
+                    <p className={classes.normalText}>There are multiple ways of donating. For example you can make a payment using paypal but also using certain cryptocurrencies.
+                        If you want to receive your perks then feel free to contact one of our staffmembers over on Discord before you donate. This is not neccessary when using paypal as long as you make sure
+                        that your discord name + tag is included within the donation message.
+                    </p>
+                    <div className={classes.moveRight}>
+                        <ul>
+                            <li>
+                                Paypal: <a href="https://www.paypal.com/paypalme/jerskisnow">https://www.paypal.com/paypalme/jerskisnow</a>
+                            </li>
+                            <li>
+                                Bitcoin: 1KJxP4jgciYyAQghqVQoDeEHhR6vNFStAn
+                            </li>
+                            <li>
+                                Patreon: x
+                            </li>
+                        </ul>
+                    </div>
+                </Paper>
+            </Grid>
+        </Main>
+    );
+}
+
+// Suggestion part
+
 export function SuggestionsOverview() {
     const classes = useStyles();
 
@@ -197,7 +251,7 @@ export function SuggestionsSettings() {
         <Main>
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                    <p>Todo</p>
+                    <p>Coming Soon!</p>
                 </Paper>
             </Grid>
         </Main>

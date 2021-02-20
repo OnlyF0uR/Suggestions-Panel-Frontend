@@ -5,7 +5,7 @@ import './App.css';
 import Home from './views/Home';
 import Fallback from './views/Fallback';
 
-import { Stats, Status, SuggestionsOverview, SuggestionsSettings } from './views/discordbots/Dashboard';
+import { Stats, Status, Donating, SuggestionsOverview, SuggestionsSettings } from './views/discordbots/Dashboard';
 
 import withAuth, { DiscordAuth } from './managers/Auth';
 
@@ -21,6 +21,7 @@ function App() {
             <Route exact path="/discordbots" component={DiscordAuth} />
             <Route exact path="/discordbots/stats" component={withAuth(Stats)} />
             <Route exact path="/discordbots/status" component={withAuth(Status)} />
+            <Route exact path="/discordbots/donating" component={withAuth(Donating)} />
 
             {/* Suggestions routers */}
             <Route exact path="/discordbots/suggestions" render={() => (<Redirect to="/discordbots/dashboard/suggestions/overview" />)} />}

@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,11 +11,11 @@ function createData(id, user, description, date, status) {
 }
 
 const rows = [
-    createData(0, 'someone#0001', 'new channel', '16 Mar, 2019', 'Open'),
+    createData(0, 'someone#0001', 'new channel', '14 Mar, 2019', 'Open'),
     createData(1, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
-    createData(1, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
-    createData(1, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
-    createData(1, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
+    createData(2, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
+    createData(3, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Rejected'),
+    createData(4, 'someoneelse#0002', 'new bot.', '15 Mar, 2019', 'Approved'),
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
     },
     extend: {
         marginTop: theme.spacing(3),
+    },
+    approved: {
+        color: 'green'
+    },
+    rejected: {
+        color: 'darkred'
     }
 }));
 
@@ -50,7 +55,7 @@ export default function Suggestions() {
                             <TableCell>{row.user}</TableCell>
                             <TableCell>{row.description}</TableCell>
                             <TableCell>{row.date}</TableCell>
-                            <TableCell align="right">{row.status}</TableCell>
+                            <TableCell align="right" className={colorSuggestionStatus(classes, row.status)}>{row.status}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -58,4 +63,12 @@ export default function Suggestions() {
             <div className={classes.extend} />
         </React.Fragment>
     );
+}
+
+function colorSuggestionStatus(classes, status) {
+    if (status === 'Approved') {
+        return classes.approved;
+    } else if (status === 'Rejected') {
+        return classes.rejected;
+    }
 }
